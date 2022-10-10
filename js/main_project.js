@@ -18,15 +18,13 @@ function Items(it, tipo, pPedido, stockMax, imagen){
 
 const item1 = new Items("Bananas", "Verduleria", 5, 8)
 const item2 = new Items("Naranjas", "Verduleria", 3, 8)
-const item3 = new Items("Mandarinas", "Verduleria", 3, 8)
-const item4 = new Items("Leches", "Almacen", 3, 8)
-const item5 = new Items("Yogurt", "Almacen", 3, 8)
-const item6 = new Items("Manteca", "Almacen", 2, 4)
-const item7 = new Items("Huevos", "Almacen", 4, 12)
+const item3 = new Items("Leches", "Almacen", 3, 8)
+const item4 = new Items("Yogurt", "Almacen", 3, 8)
+const item5 = new Items("Huevos", "Almacen", 4, 12)
 
 
 
-lista = [item1,item2, item3, item4, item5, item6, item7]
+lista = [item1,item2, item3, item4, item5]
 
 
 for (let i = 0; i < lista.length; i+=1){
