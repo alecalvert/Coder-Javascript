@@ -1,0 +1,52 @@
+body {
+    background-color: rgb(200, 219, 224);
+}
+
+.btn1 {
+    width: 8rem;
+    height: 4rem;
+    text-size-adjust: 2rem;
+    background-color: #84d68f;
+    border: solid;
+    color: black;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight:bold;
+    position: relative;
+    left: 1%;
+    margin-bottom: 1rem;
+    margin-top: 5rem; 
+}
+
+.btn2 {
+    width: 8rem;
+    height: 4rem;
+    text-size-adjust: 2rem;
+    background-color: #cad684;
+    border: solid;
+    color: black;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight:bold;
+    position: relative;
+    left: 6%;
+    margin-bottom: 1rem;
+    margin-top: 5rem; 
+}
+
+.btn3 {
+    display: block;
+    width: 8rem;
+    height: 2rem;
+    text-size-adjust: 2rem;
+    background-color: white;
+    border: solid;
+    color: black;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight:bold;
+    position: relative;
+    left: 8%;
+    margin-bottom: 1rem;
+    
+}
