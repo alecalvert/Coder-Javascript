@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super</title>
+
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.1/dist/aframe-extras.min.js"></script>
+    <script
+        src="https://cdn.rawgit.com/ngokevin/kframe/d7bd9968/components/sun-sky/dist/aframe-sun-sky.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <img src="../images/floor.jpg" alt="" id="piso"/>
+            <img src="../images/fruit_shelves.jpg" alt="" id="pared_verd"/>
+            <img src="../images/shelves.jpg" alt="" id="pared_alm"/>
+
+        </a-assets>
+
+        <!-- <a-sun-sky material="sunPosition: 0 1 0"></a-sun-sky> -->
+
+        <a-entity id="jugador" camera kinematic-body universal-controls position="0 1.6 0 90">
+            <a-text value="" width="3" id="score" color="black" position="0 -.5 -1" anchor="center" align="center">
+            </a-text>
+
+            <a-cursor fuse="true" fuse-timeout="800"></a-cursor>
+        </a-entity>
+
+        <a-grid static-body src="#piso"></a-grid>
+        <a-entity id="muros_verd" src="#pared_verd"></a-entity>
+        <a-entity id="muros_alm" src="#pared_alm"></a-entity>
+        <a-entity id="premios"></a-entity>
+    </a-scene>
+
+    <script>
+
+       
+
+   
+
+        let mapa = [
+            [1, 1, 4, 4, 4],
+            [1, 3, 4, 0, 4],
+            [1, 2, 4, 0, 4],
+            [1, 0, 0, 0, 4],
+            [1, 1, 4, 4, 4],
+        ];
+
+
+
+        const TAMANO_PARED = 5;
+        const ALTO_PARED = 3;
+
+        let muro_verd;
+        let muro_alm;
+        let premio;
+
+        let muros_verd = document.querySelector('#muros_verd')
+        let muros_alm = document.querySelector('#muros_alm')
+        let premios = document.querySelector('#premios')
+        let scoreElement = document.querySelector('#score')
+       
+
+        for (let x = 0; x < mapa.length; x += 1) {
+            for (let z = 0; z < mapa[x].length; z += 1) {
+                // (x 1.5 z)
+                let posicion =
+                    (x - mapa.length / 2) * TAMANO_PARED +
+                    " " +
+                    1.5 +
+                    " " +
+                    (z - mapa[x].length / 2) * TAMANO_PARED
+
+                if (mapa[x][z] == 0) {
+                    // Aire
+                    continue;
+                } else if (mapa[x][z] == 1) {
+                    muro_verd = document.createElement('a-box')
+                    muros_verd.appendChild(muro_verd)
+                    muro_verd.setAttribute("color", "#fff");
+                    muro_verd.setAttribute("material", "src: #pared_verd");
+                    muro_verd.setAttribute("width", TAMANO_PARED);
+                    muro_verd.setAttribute("height", ALTO_PARED);
+                    muro_verd.setAttribute("depth", TAMANO_PARED)
+                    muro_verd.setAttribute("position", posicion);
+                    muro_verd.setAttribute("static-body", "")
+                } else if (mapa[x][z] == 2) {
+                    document.querySelector("#jugador").setAttribute('position', posicion)
+                } else if (mapa[x][z] == 3) {
+                    premio = document.createElement('a-plane');
+                    premios.appendChild(premio);
+                    premio.setAttribute('position', posicion);
+                    premio.setAttribute('color', "orange");
+                    premio.setAttribute("rotation", "0 -270 0");
+                    premio.setAttribute("class", "premio")
+                } else if (mapa[x][z] == 4) {
+                    muro_alm = document.createElement('a-box')
+                    muros_alm.appendChild(muro_alm)
+                    muro_alm.setAttribute("color", "#fff");
+                    muro_alm.setAttribute("material", "src: #pared_alm");
+                    muro_alm.setAttribute("width", TAMANO_PARED);
+                    muro_alm.setAttribute("height", ALTO_PARED);
+                    muro_alm.setAttribute("depth", TAMANO_PARED)
+                    muro_alm.setAttribute("position", posicion);
+                    muro_alm.setAttribute("static-body", "")
+                } 
+                
+            }
+        }
+
+
+        premios = Array.from(document.querySelectorAll(".premio"))
+
+        let score = premios.length;
+
+       // scoreElement.setAttribute("value", `Encontra ${score} Premios`);
+        scoreElement.setAttribute("color", "#881166");
+
+        premios.forEach(function (premio) {
+            premio.addEventListener('click', () => {
+                premio.setAttribute("visible", "false")
+                /* score -= 1;
+                scoreElement.setAttribute("value", `Encontra ${score} Premios`); */
+
+
+                /* if (score <= 0) {
+                    scoreElement.setAttribute('value', "Encontraste todos los pokemons")
+                } */
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

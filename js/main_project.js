@@ -5,6 +5,8 @@
 let productos={}
 let lista=[]
 let compras=[]
+let compra_verd={}
+let compra_alm={}
 
 
 
@@ -19,76 +21,100 @@ function Items(it, tipo, pPedido, stockMax, imagen){
 const item1 = new Items("Bananas", "Verduleria", 5, 8)
 const item2 = new Items("Naranjas", "Verduleria", 3, 8)
 const item3 = new Items("Leches", "Almacen", 3, 8)
-const item4 = new Items("Yogurt", "Almacen", 3, 8)
+const item4 = new Items("Yogurt", "Almacen", 2, 5)
 const item5 = new Items("Huevos", "Almacen", 4, 12)
-
 
 
 lista = [item1,item2, item3, item4, item5]
 
 
-for (let i = 0; i < lista.length; i+=1){
-
- productos=lista[i]
-
- productos.stock = prompt(`Cuántas ${lista[i].it} quedan?: `)
-
- 
- for (key in productos){
-   
-    console.log(`${key}: ${productos[key]}`)
- }
 
 
+function ingresar(){
+    
+    
+    for(let elem of document.getElementById("items").children) {
+        if(elem.selected==true){
+            item=elem.value}
+    }    
+    stock = document.getElementById("cant").value
 
- function Faltante(){
-    if (productos.stock < productos.pPedido) {
-
-        compras.push({elem:productos.it, tipo:productos.tipo, cant:productos.stockMax - productos.stock})
-       
+    for (cada of lista) {
         
-        return (`Cantidad de ${lista[i].it} a comprar: ${productos.stockMax - productos.stock}`)
+        if(cada.it===item && cada.tipo==="Verduleria"){
+            let item = cada.it
+            console.log(item)
+            if (cada.pPedido >stock){
+            compra_verd[item] =  cada.stockMax - stock}
+            console.log(compra_verd)
+            const verdu_json = JSON.stringify(compra_verd)
+            localStorage.setItem("verdu_json", verdu_json)    
+            
+        }   
+        else if(cada.it===item && cada.tipo==="Almacen"){
+        
+            let item = cada.it
+            console.log(item)
+            if (cada.pPedido >stock){
+            compra_alm[item] =  cada.stockMax - stock}
+            console.log(compra_alm)
+
+            const alm_json = JSON.stringify(compra_alm)
+            localStorage.setItem("alm_json", alm_json)
+        }        
     }
-
-    else{
-        return (`No necesitas comprar ${lista[i].it}`)
-    }
- }
-
- 
- console.log(Faltante())
- console.log("\n\n\n")
-
- 
 }
 
+ 
 
 function borrar(){
-    const elemento = document.querySelectorAll("h2")
+    const elemento = document.querySelectorAll("h4")
     for (cosa of elemento){
         cosa.remove()
+        
     }
 }
 
 
 function verdura(){
     borrar()
-    const Verdu = compras.filter ((el) => el.tipo==="Verduleria")
-    for (cosa of Verdu){
-        let listado = document.createElement("h2")
-        listado.innerHTML = cosa.elem + ":  " + cosa.cant
-        document.body.append(listado)
+
+    for (cosa in compra_verd){
+        const listado = document.createElement("h4")
+        listado.innerHTML = cosa + " : " + compra_verd[cosa] 
+        prueba.appendChild(listado)
     }
+
 }
 
 function almacen(){
     borrar()
-    const Almac = compras.filter ((el) => el.tipo==="Almacen")
-    for (cosa of Almac){
-        let listado = document.createElement("h2")
-        listado.innerHTML = cosa.elem + ":  " + cosa.cant
-        document.body.append(listado)
+
+    for (cosa in compra_alm){
+        const listado = document.createElement("h4")
+        listado.innerHTML = cosa + " : " + compra_alm[cosa] 
+        prueba.appendChild(listado)
     }
+
 }
 
+function recupera(){
+    let final_verdu = JSON.parse(localStorage.getItem('verdu_json'))
+    let final_alm = JSON.parse(localStorage.getItem('alm_json'))
+    
+    for (cosa in final_verdu){
+
+        const listado = document.createElement("h4")
+        listado.innerHTML = cosa + " : " + final_verdu[cosa] 
+        final.appendChild(listado)
+    }
+
+    for (cosa in final_alm){
+
+        const listado = document.createElement("h4")
+        listado.innerHTML = cosa + " : " + final_alm[cosa] 
+        final.appendChild(listado)
+    }
+    
+}
 
