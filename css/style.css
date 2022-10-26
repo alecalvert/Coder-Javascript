@@ -1,4 +1,6 @@
-
+body {
+    background: #eef3f4;
+    background: linear-gradient(90deg, #eef3f4 0%, #caebed 15%, #c1bbe3 100%); }
 
 .btn1 {
     width: 8rem;
