@@ -50,6 +50,25 @@
     
 }
 
+.btn4 {
+    display: block;
+    width: 8rem;
+    height: 2rem;
+    text-size-adjust: 2rem;
+    background-color: rgb(233, 181, 203);
+    border: solid;
+    color: black;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight:bold;
+    position: relative;
+    left: 1%;
+    margin-top: 0.5rem;
+    
+    
+}
+
+
 .btn5 {
     width: 8rem;
     height: 4rem;
@@ -74,8 +93,52 @@
 
 .titulo{
     margin-top: 7rem;
+    margin-left: 4rem;
 }
 
 .botones{
     margin-top: -3rem;
+}
+
+.header__contenedor {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    outline-style: solid;
+    outline-color: #0f21c9;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #3b3b73 25%, #00d4ff 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+
+  
+.super{
+    flex-direction: row;
+    font-size:30px;
+    background-color: #1df553;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    margin: 4px 2px;
+    transition: 0.6s;}
+
+h2{
+    margin-right: 3rem;
+}    
+
+.selec{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 20px;
+}
+#items{
+    width: 10rem;
+    
+    font-weight:bold;
 }

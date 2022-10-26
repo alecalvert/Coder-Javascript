@@ -99,6 +99,7 @@ function almacen(){
 }
 
 function recupera(){
+    borrar()
     let final_verdu = JSON.parse(localStorage.getItem('verdu_json'))
     let final_alm = JSON.parse(localStorage.getItem('alm_json'))
     
