@@ -61,8 +61,11 @@ function ingresar(){
 
             const alm_json = JSON.stringify(compra_alm)
             localStorage.setItem("alm_json", alm_json)
-        }        
-    }
+        }
+    }  
+
+    document.getElementById("elform").reset(); 
+
 }
 
  
@@ -116,6 +119,6 @@ function recupera(){
         listado.innerHTML = cosa + " : " + final_alm[cosa] 
         final.appendChild(listado)
     }
-    
+   
 }
 
