@@ -88,11 +88,15 @@
           </div>  -->
 
 
-          
+
         
     </section>
     <script>
-        navigator.geolocation.getCurrentPosition(callbackfunction)
+        if (navigator.geolocation) { //check if geolocation is available
+        navigator.geolocation.getCurrentPosition(function(position){
+        console.log(position);
+        });   
+        }
         $.get( "http://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude +"&sensor=false", function(data) {
         console.log(data);
         })
