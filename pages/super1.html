@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>super1</title>
+</head>
+<body>
+    
+
+    <div class="tanda1">
+            <button id="btnA" class="btnA" type="button"></button>
+            <button class="btn btn-primary btnB" type="button">Boton 2</button>
+            <button class="btn btn-primary btnC" type="button">Boton 3</button>      
+    </div> 
+    <div class="tanda2">
+            <button class="btn btn-primary btnD" type="button">Boton 4</button>
+            <button class="btn btn-primary btnE" type="button">Boton 5</button>
+              
+    </div>
+    <div>
+
+
+    </div>
+
+
+</body>
+
+
+    <script src="js/main_project.js"></script> 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector("#btnA").addEventListener("click", () =>{
+        Swal.fire("Hello World")
+        })
+    </script>
+
+    </html>

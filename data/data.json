@@ -1,0 +1,5 @@
+[
+{"it": "Bananas", "tipo": "Verduleria", "pPedido": 5, "stockMax": 8, "precio": 40},
+{"it": "Duraznos", "tipo": "Verduleria", "pPedido": 3, "stockMax": 7, "precio": 50},
+{"it": "Fideos", "tipo": "Almacen", "pPedido": 3, "stockMax": 8, "precio": 150},
+{"it": "Harina", "tipo": "Almacen", "pPedido": 3, "stockMax": 5, "precio": 180}]
