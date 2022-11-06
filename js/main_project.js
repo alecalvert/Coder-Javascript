@@ -12,12 +12,6 @@ let tabla = []
 
 
 const links = document.querySelectorAll('nav a')
-//localStorage.clear()
-
-
-
-
-//lista = [item1,item2, item3, item4, item5]
 
 
 const obtenerData = () => {
@@ -116,30 +110,6 @@ function almacen(){
 
 }
 
-/* function recupera(){
-    borrar()
-    let final_verdu = JSON.parse(localStorage.getItem('verdu_json'))
-    let final_alm = JSON.parse(localStorage.getItem('alm_json'))
-    
-    for (cosa in final_verdu){
-
-        const listado = document.createElement("h4")
-        listado.innerHTML = cosa + " : " + final_verdu[cosa] 
-        final.appendChild(listado)
-    }
-
-    for (cosa in final_alm){
-
-        const listado = document.createElement("h4")
-        listado.innerHTML = cosa + " : " + final_alm[cosa] 
-        final.appendChild(listado)
-    }
-   
-} */
-
-
-
-
 
 async function sumban()   {
                        
@@ -219,7 +189,7 @@ async function sumhar()   {
     })
     
     if (canthar < compra_alm["Harina"]) {
-        Swal.fire(`Faltan: ${compra_verd["Harina"]-canthar}`)}
+        Swal.fire(`Faltan: ${compra_alm["Harina"]-canthar}`)}
     else  {
         Swal.fire("Perfecto!")
     } 
@@ -249,7 +219,7 @@ async function sumfid()   {
     })
     
     if (cantfid < compra_alm["Fideos"]) {
-        Swal.fire(`Faltan: ${compra_verd["Fideos"]-cantfid}`)}
+        Swal.fire(`Faltan: ${compra_alm["Fideos"]-cantfid}`)}
     else  {
         Swal.fire("Perfecto!")
     } 
@@ -266,31 +236,26 @@ document.querySelector("#harina").addEventListener("click", sumhar)
 document.querySelector("#fideos").addEventListener("click", sumfid)
 
 
-
-
-//document.querySelector("#harina").addEventListener("click", sumban)
-//document.querySelector("#fideos").addEventListener("click", sumban)
-
-/* for (tema of tabla){
-    const ultimo = document.createElement("h4")
-    ultimo.innerHTML = tema + " : " + tabla[tema] 
-    elcarro.appendChild(ultimo)
-    console.log(ultimo)
-} */
-
 function comprafinal(){
     console.log(tabla)
     
     const ultimo = document.querySelector("#elcarro")
-    ultimo.innerHTML = `<p>Bananas: ${tabla.bananas}</p>
-                        <p>Duraznos: ${tabla.duraznos}</p>                            
-                        <p>Harina: ${tabla.harina}</p>   
-                        <p>Fideos: ${tabla.fideos}</p>                         
+    ultimo.innerHTML = `<div id="paq">
+                        <h3>Comprando:</h3>
+                        <br>
+                        <p>Bananas: ${tabla.bananas}  &ensp;- &ensp;Tot:  $${lista[0].precio*tabla.bananas}</p>
+                        <p>Duraznos: ${tabla.duraznos} &ensp;- &ensp;Tot:  $${lista[1].precio*tabla.duraznos}</p>                            
+                        <p>Harina: ${tabla.harina} &ensp;- &ensp;Tot:  $${lista[2].precio*tabla.harina}</p>   
+                        <p>Fideos: ${tabla.fideos} &ensp;- &ensp;Tot:  $${lista[3].precio*tabla.fideos}</p>                         
     
-    
+                        </div>
     `
     
 }
     
-
+function borrar2(){
+    const elemento = document.querySelector("#paq")
     
+        elemento.remove()
+        
+}

@@ -29,8 +29,12 @@
 
     <section id="miPagina" class="section_general"> 
 
+        <div>
+            <h2>EN CASA:</h2>
+        </div>
+        
         <div class="selec">
-            <h2>
+            <h2 id="tit_stock">
                 Seleccionar Stock disponible
             </h2>
             <select name="items" id="items">
@@ -50,7 +54,10 @@
         
 
         </div>
-        <h3 class="titulo">Verificar necesidad</h3>
+        <div class="titulo">
+            <h3>Verificar necesidad</h3>
+        </div>
+        
         <div class="botones">
             
             <button class="btn1" onclick="verdura()">Verdulería</button>
@@ -83,7 +90,7 @@
 
 
         <div>
-            <h3 id="tit_super">En el super:</h3>
+            <h2 id="tit_super">EN EL SUPER:</h2>
             <br>
             <br>
             <div id="tanda1" class="tanda1">
@@ -98,7 +105,8 @@
               
             </div>
 
-            <button id="cfinal" onclick="comprafinal()"></button>
+            <button id="cfinal" onclick="comprafinal()">Tu Compra</button>
+            <button onclick="borrar2()">Borrar compra</button>
             <div id="elcarro"></div>
             
         </div>
