@@ -1,14 +1,14 @@
-/* .header{
-    
-    position: sticky;
-    top: 0;
-    left: 0;
-    backface-visibility:hidden;
-} */
+
 
 body {
     background: #eef3f4;
     background: linear-gradient(90deg, #eef3f4 0%, #caebed 15%, #c1bbe3 100%); }
+
+#encasa{
+    color: red;
+}
+
+
 
 .selec{
     margin-top: 2rem;
@@ -165,6 +165,10 @@ body {
     margin: 4px 2px;
     transition: 0.6s;}
 
+.super:hover{
+    background-color: red;
+}    
+
 #tit_stock{
     margin-right: 3rem;
 }    
@@ -205,6 +209,7 @@ body {
 #tit_super{
     margin-left: 5rem ;
     margin-top: 5rem;
+    color: red;
 }
 
 .tanda1{
